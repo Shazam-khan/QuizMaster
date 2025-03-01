@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-black flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-gray-100 shadow">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="text-2xl md:text-3xl font-bold">
+                <a href="#" class="text-black hover:text-gray-800">QuizMaster</a>
+            </div>
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="home.html" class="text-gray-600 hover:text-black transition">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-black transition">About Us</a>
+                <a href="contact.html" class="text-gray-600 hover:text-black transition">Contact Us</a>
+                <a href="quiz.html" class="text-gray-600 hover:text-black transition">Quiz</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600 focus:outline-none" id="mobile-menu-btn">
+                ☰
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="max-w-6xl mx-auto px-4 py-2 bg-gray-200">
+                <a href="home.html" class="block py-2 text-gray-600 hover:text-black">Home</a>
+                <a href="about.html" class="block py-2 text-gray-600 hover:text-black">About Us</a>
+                <a href="contact.html" class="block py-2 text-gray-600 hover:text-black">Contact Us</a>
+                <a href="quiz.html" class="block py-2 text-gray-600 hover:text-black">Quiz</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Slider Section -->
+        <section class="relative w-full max-w-7xl mx-auto py-2 bg-gray-200">
+                <div class="slides flex transition-transform duration-500 ease-in-out bg-none">
+                    <div class="slide min-w-full bg-none">
+                        <div class="flex flex-col items-center justify-center h-96 ">
+                            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-center">Welcome to QuizMaster</h1>
+                            <p class="text-lg md:text-xl text-gray-600 mb-6 text-center">QuizMaster as a quiz platform with multiple categories and a timer for an engaging experience!</p>
+                            <button class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition">Get Started</button>
+                        </div>
+                    </div>
+                    <div class="slide min-w-full bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%">
+                        <div class="flex flex-col items-center justify-center h-96">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">Awesome Key Features</h2>
+                            <p class="text-lg text-gray-600 mb-6 text-center">
+                                100+ Questions | Multiple Categories | Score based Results
+                            </p>
+                            <button class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition"><a href="about.html">Explore Features</a></button>
+                        </div>
+                    </div>
+                    <div class="slide min-w-full bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%">
+                        <div class="flex flex-col items-center justify-center h-96">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">Ready to Challenge Yourself?</h2>
+                            <p class="text-lg md:text-xl text-gray-600 mb-6 text-center">Start the Quiz now and join thousands of players today!</p>
+                            <button class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition"><a href="quiz.html">Start Quiz Now</a></button>
+                        </div>
+                    </div>
+                </div>
+            
+            <button class="prev absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-300 text-white py-2 px-4 rounded-full hover:bg-gray-500">❮</button>
+            <button class="next absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-300 text-white py-2 px-4 rounded-full hover:bg-gray-500">❯</button>
+            <div class="dots flex justify-center mt-4 space-x-2">
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer"></span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- About QuizMaster -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">About QuizMaster</h3>
+                    <p class="text-gray-600">
+                        QuizMaster is your go-to platform for fun and educational quizzes. Test your knowledge across various categories with a thrilling timer feature, compete on leaderboards, and enjoy a dynamic quiz experience designed by a passionate team of trivia enthusiasts.
+                    </p>
+                </div>
+                <!-- Quick Links and Contact Us -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li><a href="#" class="hover:text-black transition">Home</a></li>
+                            <li><a href="#" class="hover:text-black transition">About Us</a></li>
+                            <li><a href="#" class="hover:text-black transition">Contact Us</a></li>
+                            <li><a href="#" class="hover:text-black transition">Quiz</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact Us -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                        <p class="text-gray-600">Email: support@quizmaster.com</p>
+                        <p class="text-gray-600">Phone: (555) 123-4567</p>
+                        <p class="text-gray-600">Address: 123 Quiz St, Knowledge City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-600">
+                <p>© 2025 QuizMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Slider Functionality
+        const slides = document.querySelector('.slides');
+        const slide = document.querySelectorAll('.slide');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+        const totalSlides = slide.length;
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('bg-gray-800', index === currentIndex);
+                dot.classList.toggle('bg-gray-400', index !== currentIndex);
+            });
+        }
+
+        function showSlide(index) {
+            if (index >= totalSlides) currentIndex = 0;
+            else if (index < 0) currentIndex = totalSlides - 1;
+            else currentIndex = index;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateDots();
+        }
+
+        next.addEventListener('click', () => showSlide(currentIndex + 1));
+        prev.addEventListener('click', () => showSlide(currentIndex - 1));
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        setInterval(() => showSlide(currentIndex + 1), 5000);
+        showSlide(currentIndex);
+    </script>
+</body>
+</html>

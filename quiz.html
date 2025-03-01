@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-black flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-gray-100 shadow">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="text-2xl md:text-3xl font-bold">
+                <a href="#" class="text-black hover:text-gray-800">QuizMaster</a>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="home.html" class="text-gray-600 hover:text-black transition">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-black transition">About Us</a>
+                <a href="contact.html" class="text-gray-600 hover:text-black transition">Contact Us</a>
+                <a href="quiz.html" class="text-gray-600 hover:text-black transition">Quiz</a>
+            </nav>
+            <button class="md:hidden text-gray-600 focus:outline-none" id="mobile-menu-btn">
+                ☰
+            </button>
+        </div>
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="max-w-6xl mx-auto px-4 py-2 bg-gray-200">
+                <a href="home.html" class="block py-2 text-gray-600 hover:text-black">Home</a>
+                <a href="about.html" class="block py-2 text-gray-600 hover:text-black">About Us</a>
+                <a href="contact.html" class="block py-2 text-gray-600 hover:text-black">Contact Us</a>
+                <a href="quiz.html" class="block py-2 text-gray-600 hover:text-black">Quiz</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <section class="max-w-6xl mx-auto px-4 py-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">Take a Quiz</h1>
+
+            <!-- Course Selection -->
+            <div id="course-selection" class="max-w-md mx-auto mb-8 text-center">
+                <label for="course" class="block text-lg text-gray-600 mb-2">Select a Quiz Course</label>
+                <select id="course" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    <option value="" disabled selected>Select a course</option>
+                    <option value="general">General Knowledge</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                </select>
+                <button id="start-quiz" class="w-full bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition mt-4 hidden">Start Quiz</button>
+            </div>
+
+            <!-- Quiz Container (Hidden Initially) -->
+            <div id="quiz-container" class="max-w-lg mx-auto hidden">
+                <!-- Timer -->
+                <div class="flex justify-between items-center mb-4">
+                    <div id="timer" class="text-lg font-semibold text-gray-600">Time Left: 20s</div>
+                    <div class="text-lg font-semibold text-gray-600">Question <span id="current-question">1</span>/5</div>
+                </div>
+                <!-- Progress Bar -->
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
+                    <div id="progress-bar" class="bg-gray-800 h-2.5 rounded-full" style="width: 20%"></div>
+                </div>
+                <!-- Question -->
+                <div id="question" class="text-xl font-semibold mb-4"></div>
+                <!-- Options -->
+                <div id="options" class="space-y-4"></div>
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between mt-6">
+                    <button id="prev-btn" class="bg-gray-300 text-black px-4 py-2 rounded-lg hover:bg-gray-400 transition disabled:opacity-50 disabled:cursor-not-allowed">Previous</button>
+                    <button id="next-btn" class="bg-gray-300 text-black px-4 py-2 rounded-lg hover:bg-gray-400 transition disabled:opacity-50 disabled:cursor-not-allowed">Next</button>
+                </div>
+                <!-- Submit Button -->
+                <button id="submit-btn" class="w-full bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition mt-6 hidden disabled:opacity-50 disabled:cursor-not-allowed">Submit Quiz</button>
+            </div>
+
+            <!-- Results Container (Hidden Initially) -->
+            <div id="results-container" class="max-w-lg mx-auto hidden">
+                <h2 class="text-2xl font-bold mb-4">Quiz Results</h2>
+                <div id="results" class="text-lg text-gray-600"></div>
+                <button id="restart-btn" class="w-full bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition mt-6">Try Another Quiz</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- About QuizMaster -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">About QuizMaster</h3>
+                    <p class="text-gray-600">
+                        QuizMaster is your go-to platform for fun and educational quizzes. Test your knowledge across various categories with a thrilling timer feature, compete on leaderboards, and enjoy a dynamic quiz experience designed by a passionate team of trivia enthusiasts.
+                    </p>
+                </div>
+                <!-- Quick Links and Contact Us -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li><a href="#" class="hover:text-black transition">Home</a></li>
+                            <li><a href="#" class="hover:text-black transition">About Us</a></li>
+                            <li><a href="#" class="hover:text-black transition">Contact Us</a></li>
+                            <li><a href="#" class="hover:text-black transition">Quiz</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact Us -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                        <p class="text-gray-600">Email: support@quizmaster.com</p>
+                        <p class="text-gray-600">Phone: (555) 123-4567</p>
+                        <p class="text-gray-600">Address: 123 Quiz St, Knowledge City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-600">
+                <p>© 2025 QuizMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    
+        // Quiz Data (Sample Questions)
+        const quizData = {
+            general: [
+                { question: "What is the capital of France?", options: ["Paris", "London", "Berlin", "Madrid"], answer: "Paris" },
+                { question: "Which planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter", "Saturn"], answer: "Mars" },
+                { question: "What is 2 + 2?", options: ["3", "4", "5", "6"], answer: "4" },
+                { question: "Which ocean is the largest?", options: ["Atlantic", "Indian", "Arctic", "Pacific"], answer: "Pacific" },
+                { question: "Who painted the Mona Lisa?", options: ["Van Gogh", "Picasso", "Da Vinci", "Monet"], answer: "Da Vinci" }
+            ],
+            science: [
+                { question: "What gas do plants absorb?", options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], answer: "Carbon Dioxide" },
+                { question: "What is H2O?", options: ["Salt", "Sugar", "Water", "Acid"], answer: "Water" },
+                { question: "Which is the smallest unit of life?", options: ["Cell", "Atom", "Molecule", "Organ"], answer: "Cell" },
+                { question: "What force keeps us on Earth?", options: ["Magnetism", "Gravity", "Friction", "Tension"], answer: "Gravity" },
+                { question: "What is the boiling point of water?", options: ["50°C", "75°C", "100°C", "125°C"], answer: "100°C" }
+            ],
+            history: [
+                { question: "Who discovered America?", options: ["Columbus", "Magellan", "Vasco da Gama", "Cook"], answer: "Columbus" },
+                { question: "In which year did WW2 end?", options: ["1940", "1945", "1950", "1939"], answer: "1945" },
+                { question: "Who was the first US President?", options: ["Lincoln", "Washington", "Adams", "Jefferson"], answer: "Washington" },
+                { question: "What ancient wonder was in Egypt?", options: ["Colosseum", "Pyramids", "Great Wall", "Stonehenge"], answer: "Pyramids" },
+                { question: "Which empire fell in 476 AD?", options: ["Roman", "Greek", "Ottoman", "Byzantine"], answer: "Roman" }
+            ]
+        };
+    
+        // DOM Elements
+        const courseSelect = document.getElementById('course');
+        const startQuizBtn = document.getElementById('start-quiz');
+        const quizContainer = document.getElementById('quiz-container');
+        const courseSelection = document.getElementById('course-selection');
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const timerEl = document.getElementById('timer');
+        const currentQuestionEl = document.getElementById('current-question');
+        const progressBar = document.getElementById('progress-bar');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const resultsContainer = document.getElementById('results-container');
+        const resultsEl = document.getElementById('results');
+        const restartBtn = document.getElementById('restart-btn');
+    
+        let currentQuiz = [];
+        let currentIndex = 0;
+        let answers = [];
+        let locked = [];
+        let timer;
+        let timeLeft = 20;
+    
+        // Show Start Quiz Button
+        courseSelect.addEventListener('change', () => {
+            if (courseSelect.value) startQuizBtn.classList.remove('hidden');
+        });
+    
+        // Start Quiz
+        startQuizBtn.addEventListener('click', () => {
+            currentQuiz = quizData[courseSelect.value];
+            courseSelection.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+            answers = new Array(currentQuiz.length).fill(null);
+            locked = new Array(currentQuiz.length).fill(false);
+            loadQuestion(currentIndex);
+            startTimer();
+        });
+    
+        // Load Question
+        function loadQuestion(index) {
+            const q = currentQuiz[index];
+            questionEl.textContent = q.question;
+            optionsEl.innerHTML = '';
+            q.options.forEach((option, i) => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <input type="radio" name="answer" id="option${i}" value="${option}" ${locked[index] ? 'disabled' : ''} ${answers[index] === option ? 'checked' : ''}>
+                    <label for="option${i}" class="ml-2">${option}</label>
+                `;
+                optionsEl.appendChild(div);
+            });
+            currentQuestionEl.textContent = index + 1;
+            progressBar.style.width = `${((index + 1) / 5) * 100}%`;
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === currentQuiz.length - 1; // Simplified: disable only on last question
+            submitBtn.classList.toggle('hidden', !canSubmit());
+            submitBtn.disabled = !canSubmit();
+            updateTimerDisplay();
+        }
+    
+        // Timer Logic
+        function startTimer() {
+            clearInterval(timer);
+            timeLeft = 20;
+            updateTimerDisplay();
+            timer = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    lockQuestion();
+                }
+            }, 1000);
+        }
+    
+        function updateTimerDisplay() {
+            timerEl.textContent = `Time Left: ${timeLeft}s`;
+        }
+    
+        function lockQuestion() {
+            clearInterval(timer);
+            locked[currentIndex] = true;
+            loadQuestion(currentIndex); // Refresh to disable options
+            if (currentIndex < currentQuiz.length - 1) {
+                currentIndex++;
+                loadQuestion(currentIndex);
+                startTimer();
+            } else {
+                checkSubmit();
+            }
+        }
+    
+        // Save Answer
+        function saveAnswer() {
+            if (!locked[currentIndex]) {
+                const selectedOption = optionsEl.querySelector('input[name="answer"]:checked');
+                answers[currentIndex] = selectedOption ? selectedOption.value : null;
+            }
+        }
+    
+        // Navigation
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                saveAnswer();
+                clearInterval(timer);
+                currentIndex--;
+                loadQuestion(currentIndex);
+                if (!locked[currentIndex]) startTimer();
+            }
+        });
+    
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < currentQuiz.length - 1) {
+                saveAnswer();
+                clearInterval(timer);
+                currentIndex++;
+                loadQuestion(currentIndex);
+                if (!locked[currentIndex]) startTimer();
+            }
+        });
+    
+        // Save Answer on Change
+        optionsEl.addEventListener('change', (e) => {
+            if (!locked[currentIndex]) {
+                answers[currentIndex] = e.target.value;
+                checkSubmit();
+            }
+        });
+    
+        // Submit Logic
+        function canSubmit() {
+            return answers.every((a, i) => a !== null || locked[i]);
+        }
+    
+        function checkSubmit() {
+            if (canSubmit()) {
+                submitBtn.classList.remove('hidden');
+                submitBtn.disabled = false;
+            }
+        }
+    
+        submitBtn.addEventListener('click', () => {
+            clearInterval(timer);
+            quizContainer.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+            let score = 0;
+            let resultHTML = '';
+            currentQuiz.forEach((q, i) => {
+                const isCorrect = answers[i] === q.answer;
+                if (isCorrect) score++;
+                resultHTML += `
+                    <p class="mb-2">
+                        ${i + 1}. ${q.question}<br>
+                        Your Answer: ${answers[i] || 'Not Answered'} - 
+                        ${isCorrect ? 'Correct' : `Incorrect (Correct: ${q.answer})`}
+                    </p>
+                `;
+            });
+            resultsEl.innerHTML = `${resultHTML}<p class="font-bold mt-4">Score: ${score}/${currentQuiz.length}</p>`;
+        });
+    
+        // Restart
+        restartBtn.addEventListener('click', () => {
+            resultsContainer.classList.add('hidden');
+            courseSelection.classList.remove('hidden');
+            courseSelect.value = '';
+            startQuizBtn.classList.add('hidden');
+            currentIndex = 0;
+            answers = [];
+            locked = [];
+            timeLeft = 20;
+        });
+    </script>
+</body>
+</html>

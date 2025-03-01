@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-black flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-gray-100 shadow">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="text-2xl md:text-3xl font-bold">
+                <a href="#" class="text-black hover:text-gray-800">QuizMaster</a>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="home.html" class="text-gray-600 hover:text-black transition">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-black transition">About Us</a>
+                <a href="contact.html" class="text-gray-600 hover:text-black transition">Contact Us</a>
+                <a href="quiz.html" class="text-gray-600 hover:text-black transition">Quiz</a>
+            </nav>
+            <button class="md:hidden text-gray-600 focus:outline-none" id="mobile-menu-btn">
+                ☰
+            </button>
+        </div>
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="max-w-6xl mx-auto px-4 py-2 bg-gray-200">
+                <a href="home.html" class="block py-2 text-gray-600 hover:text-black">Home</a>
+                <a href="about.html" class="block py-2 text-gray-600 hover:text-black">About Us</a>
+                <a href="contact.html" class="block py-2 text-gray-600 hover:text-black">Contact Us</a>
+                <a href="quiz.html" class="block py-2 text-gray-600 hover:text-black">Quiz</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <section class="max-w-6xl mx-auto px-4 py-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">About QuizMaster</h1>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <!-- Text Content -->
+                <div class="md:w-2/3">
+                    <p class="text-lg text-gray-600 mb-6">
+                        QuizMaster is a dynamic online platform designed to challenge and entertain knowledge enthusiasts worldwide. Our purpose is simple: to provide an engaging quiz experience with multiple categories—ranging from history and science to pop culture and sports—all enhanced by a thrilling timer feature. Whether you're a trivia buff or just looking for a fun way to pass the time, QuizMaster offers something for everyone.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Our mission is to foster a love for learning through interactive gameplay. We aim to create a community where players can test their skills, compete on leaderboards, and discover new facts in a fast-paced, enjoyable environment. With over 1,000 questions and regular updates, QuizMaster keeps the excitement alive while encouraging curiosity and friendly competition.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        Created by a passionate team of quiz lovers and tech enthusiasts, QuizMaster reflects our dedication to blending education with entertainment. We’re a small group of developers and content creators who believe that knowledge is best shared through play. Join us on this journey to explore, learn, and master the art of quizzing!
+                    </p>
+                </div>
+                <!-- Image -->
+                <div class="md:w-1/3">
+                    <img src="images/aboutus.jpg" alt="QuizMaster in action" class="w-full rounded-lg shadow-md">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- About QuizMaster -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">About QuizMaster</h3>
+                    <p class="text-gray-600">
+                        QuizMaster is your go-to platform for fun and educational quizzes. Test your knowledge across various categories with a thrilling timer feature, compete on leaderboards, and enjoy a dynamic quiz experience designed by a passionate team of trivia enthusiasts.
+                    </p>
+                </div>
+                <!-- Quick Links and Contact Us -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li><a href="#" class="hover:text-black transition">Home</a></li>
+                            <li><a href="#" class="hover:text-black transition">About Us</a></li>
+                            <li><a href="#" class="hover:text-black transition">Contact Us</a></li>
+                            <li><a href="#" class="hover:text-black transition">Quiz</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact Us -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                        <p class="text-gray-600">Email: support@quizmaster.com</p>
+                        <p class="text-gray-600">Phone: (555) 123-4567</p>
+                        <p class="text-gray-600">Address: 123 Quiz St, Knowledge City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-600">
+                <p>© 2025 QuizMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
